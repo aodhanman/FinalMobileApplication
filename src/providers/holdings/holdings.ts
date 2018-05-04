@@ -27,7 +27,7 @@ export class HoldingsProvider {
         this.holdings.push(holding);
         this.retrievePrices();
         this.recordHoldings();
-    }
+    }// values to array
  
     removeHolding(holding): void {
  
@@ -38,7 +38,7 @@ export class HoldingsProvider {
  
     recordHoldings(): void {
         this.storage.set('cryptoHoldings', this.holdings);
-    }
+    }// RECORDS VALUES
     loadHoldings(): void {
  
         this.storage.get('cryptoHoldings').then(holdings => {
