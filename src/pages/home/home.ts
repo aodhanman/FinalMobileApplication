@@ -16,11 +16,11 @@ export class HomePage {
     }
     openScan(){
       this.navCtrl.push(ScannerPage);
-    }
+    }//opens scanner page
  
     openAbout(){
       this.navCtrl.push(AboutPage);
-    }
+    }//opens about page
 
     ionViewDidLoad(): void {
         this.holdingsProvider.loadHoldings();
@@ -32,10 +32,11 @@ export class HomePage {
  
     goToCryptonator(): void {
         window.open('https://www.cryptonator.com/api', '_system');
-    }
+    }//opens window
  
     refreshPrices(refresher): void {
         this.holdingsProvider.retrievePrices(refresher);
+        //refresh prices
     }
  
 }
