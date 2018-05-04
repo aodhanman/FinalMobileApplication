@@ -1,3 +1,25 @@
 page-home {
-
+ 
+    
+ 
+    ion-item-sliding {
+        margin-top: 10px;
+    }
+    .toolbar-background {
+        background-color:  rgba(144, 12, 19, 0.685);
+      }
+ 
+    .scroll-content{
+        justify-content: center;
+        display: flex!important;
+        align-items: center!important;
+        //centres text
+    }
+ 
+    .value {
+        margin-top: 10px;
+        font-size: 1.2em;
+        color:blueviolet;
+    }
+ 
 }

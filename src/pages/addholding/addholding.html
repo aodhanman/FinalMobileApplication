@@ -1,0 +1,33 @@
+<ion-header>
+ 
+  <ion-navbar color="primary">
+    <ion-title>Add Holding</ion-title>
+  </ion-navbar>
+ 
+</ion-header>
+  
+<ion-content padding>
+ 
+    <ion-list>
+ 
+        <ion-item>
+            <ion-label stacked>CryptoCurrency Code</ion-label>
+            <ion-input [(ngModel)]="cryptoCode" placeholder="(BTC, LTC, ETH)" type="text"></ion-input>
+        </ion-item>
+ 
+        <ion-item>
+            <ion-label stacked>Currency Code</ion-label>
+            <ion-input [(ngModel)]="displayCurrency" placeholder="(USD, EUR, GBP)" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Amount Owned</ion-label>
+            <ion-input [(ngModel)]="totalHolding" type="number"></ion-input>
+        </ion-item>
+    </ion-list>  
+ 
+    <button ion-button full (click)="addHolding()" [disabled]="checkingValidity">Add Holding </button>
+ 
+    
+ 
+</ion-content>
+ 

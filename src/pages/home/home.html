@@ -1,14 +1,44 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title >
+      Crytpo Value Tracker
     </ion-title>
+    <ion-buttons end>
+        <button ion-button  (click)="openScan()"><ion-icon name="scan">Scanner</ion-icon></button>
+        <button ion-button  (click)="openAbout()"><ion-icon name="about">About</ion-icon></button>
+        <button ion-button icon-only (click)="addHolding()"><ion-icon name="add"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+ 
+<ion-content>
+ 
+    <div class="message" *ngIf="!holdingsProvider.holdings.length">
+ 
+        <button ion-button full (click)="addHolding()" color="primary">Add Coins</button>
+ // button that triggers addHolding
+    </div>
+ 
+    <ion-refresher *ngIf="holdingsProvider.holdings.length" (ionRefresh)="refreshPrices($event)">
+      //refreshes value
+    </ion-refresher>
+ 
+    <ion-list no-lines>
+ 
+        <ion-item-sliding *ngFor="let holding of holdingsProvider.holdings">
+            // loops through to display holdings
+          <ion-item class="holding">
+            <p><strong>{{holding.crypto}}/{{holding.currency}}</strong></p>
+            <p class="amount"><strong>Coins:</strong> {{holding.amount}} <strong>Value:</strong> {{holding.value}}</p>
+            <p *ngIf="holding.value > 0" class="value"><strong>Total value: </strong>{{holding.amount * holding.value}}</p>
+          </ion-item>
+ 
+          <ion-item-options>
+            <button ion-button icon-only color="danger" (click)="holdingsProvider.removeHolding(holding)"><ion-icon name="trash"></ion-icon></button>
+          </ion-item-options>
+ 
+        </ion-item-sliding>
+ 
+    </ion-list>
+ 
 </ion-content>
